@@ -15,7 +15,7 @@ pipeline {
    	environment {
 		// GLobal Vars
 
-		MVN_DEBUG_LOGGING = "true"
+		 // MVN_DEBUG_LOGGING = "true"
     }
   
     stages {
