@@ -1,16 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  <!-- https://github.com/jenkinsci/plugin-pom -->
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>3.48</version>
+    <version>4.51</version>
+    <relativePath />
   </parent>
 
   <properties>
 		<git.repo.name>oic-auth-plugin</git.repo.name>
 		<git.project.id>ised-isde-canada</git.project.id>
-    <jenkins.version>2.60.3</jenkins.version>
-    <configuration-as-code.version>1.27</configuration-as-code.version>
+    <jenkins.version>2.346.1</jenkins.version>
+    <configuration-as-code.version>1569.vb_72405b_80249</configuration-as-code.version>
     <java.level>8</java.level>
   </properties>
 
@@ -69,6 +71,15 @@
       <artifactId>mailer</artifactId>
       <version>1.6</version>
     </dependency>
+    <!-- copied from the parent pom -->
+    <dependency>
+      <!-- to avoid https://www.slf4j.org/codes.html#release warning -->
+      <!-- TODO this would be better as a managed version of [0] -->
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.2</version>
+      <scope>provided</scope>
+    </dependency>
 
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
@@ -83,16 +94,9 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>io.jenkins</groupId>
-      <artifactId>configuration-as-code</artifactId>
+      <groupId>io.jenkins.configuration-as-code</groupId>
+      <artifactId>test-harness</artifactId>
       <version>${configuration-as-code.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.jenkins</groupId>
-      <artifactId>configuration-as-code</artifactId>
-      <version>${configuration-as-code.version}</version>
-      <type>test-jar</type>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -101,7 +105,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.2</version>
+        <version>3.0.1</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
