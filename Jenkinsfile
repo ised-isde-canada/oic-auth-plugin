@@ -12,12 +12,6 @@ pipeline {
         disableConcurrentBuilds()
     }
   
-   	environment {
-		// GLobal Vars
-
-		 // MVN_DEBUG_LOGGING = "true"
-    }
-  
     stages {
     	stage('build') {
 			steps {
